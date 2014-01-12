@@ -26,9 +26,10 @@ exports.fixtureDir = function (name) {
   before(function moveToDestPath () {
     process.chdir(destPath);
   });
+  after(function deleteDestPath (done) {
+    wrench.rmdirRecursive(destPath, false, function (err) {
+      done();
+    });
+  });
   return destPath;
-  // TODO: Perform this
-  // TODO: Maybe this should be a separate fixture action?
-  // before(function moveDotgitToGit (done) {
-  // });
 };
