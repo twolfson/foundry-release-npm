@@ -12,66 +12,41 @@ var foundryUtils = require('./utils/foundry');
 var childUtils = require('./utils/child-process');
 
 // Define our test
-describe('A release', function () {
-  describe('in a node module (npm)', function () {
+describe('Setting the version', function () {
+  describe('for a node module', function () {
     var fixtureDir = fixtureUtils.fixtureDir('npm');
-    before(function release (done) {
-      // Introduce custom stubbing
-      var program = foundryUtils.create({
-        allowSetVersion: true
-      });
-
-      // When publishing to npm, stub over exec to return all valid calls
-      var that = this;
-      program.once('publish#before', function () {
-        that.execStub = sinon.stub(shell, 'exec');
-      });
-
-      // Run through the release
-      program.once('publish#after', done);
-      program.parse(['node', '/usr/bin/foundry', 'release', '0.1.0']);
-    });
-    after(function unstub () {
-      this.execStub.restore();
-    });
 
     it('updates the package.json', function () {
       var pkgJson = fs.readFileSync(fixtureDir + '/package.json');
       expect(JSON.parse(pkgJson)).to.have.property('version', '0.1.0');
     });
+
+  });
+});
+
+describe('Publishing', function () {
+  describe('a node module', function () {
+    var fixtureDir = fixtureUtils.fixtureDir('npm');
+    before(function (done) {
+      this.execStub = sinon.stub(shell, 'exec');
+    });
+    after(function () {
+      this.execStub.restore();
+    });
+
     it('publishes to npm', function () {
       expect(this.execStub.args[0]).to.deep.equal(['npm publish']);
     });
   });
-
-  describe('in a private node module (npm)', function () {
+  describe('a private node module', function () {
     var fixtureDir = fixtureUtils.fixtureDir('npm-private');
-    before(function release (done) {
-      // Introduce custom stubbing
-      var program = foundryUtils.create({
-        allowSetVersion: true
-      });
-
-      var that = this;
-      program.once('publish#before', function () {
-        // TODO: We should be testing against shell.exec on `private: true` for the first call. No stubbing.
-        that.execStub = sinon.stub(shell, 'exec', function () {
-          return {code: 1};
-        });
-      });
-
-      // Run through the release
-      program.once('publish#after', done);
-      program.parse(['node', '/usr/bin/foundry', 'release', '0.1.0']);
+    before(function (done) {
+      this.execStub = sinon.stub(shell, 'exec');
     });
-    after(function unstub () {
+    after(function () {
       this.execStub.restore();
     });
 
-    it('updates the package.json', function () {
-      var pkgJson = fs.readFileSync(fixtureDir + '/package.json');
-      expect(JSON.parse(pkgJson)).to.have.property('version', '0.1.0');
-    });
     it('publishes to npm', function () {
       expect(this.execStub.args).to.have.property('length', 0);
     });
