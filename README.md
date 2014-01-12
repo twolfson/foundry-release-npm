@@ -2,6 +2,8 @@
 
 npm release library for foundry
 
+// TODO: Majority of this file should be located in consistent specification (e.g. `foundry-release-spec`)
+
 ## Getting Started
 Install the module with: `npm install foundry-release-npm`
 

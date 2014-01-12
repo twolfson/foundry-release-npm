@@ -6,6 +6,8 @@ var shell = require('shelljs');
 var fixtureUtils = require('./utils/fixtures');
 var foundryUtils = require('./utils/foundry');
 
+// TODO: Relocate utils into spec
+
 // Guarantee safeguards against exec are in place (see WARNING.md)
 var childUtils = require('./utils/child-process');
 
