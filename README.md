@@ -4,8 +4,15 @@ Manage [npm][] releases via [foundry][]
 
 This is an [npm][] plugin for [foundry][], a plugin based release management library.
 
+[npm]: https://npmjs.org/
+[foundry]: https://github.com/twolfson/foundry
+
 ## Documentation
-This library was build to match the [foundry plugin specification][]. Documentation can be found at:
+This library was build to match the [foundry plugin specification][spec]. Documentation can be found at:
+
+https://github.com/twolfson/foundry-release-spec
+
+[spec]: https://github.com/twolfson/foundry-release-spec
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via [grunt](https://github.com/gruntjs/grunt) and test via `npm test`.
