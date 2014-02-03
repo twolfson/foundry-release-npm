@@ -10,13 +10,13 @@ var fixtureUtils = require('./utils/fixtures');
 
 // Guarantee safeguards against exec are in place (see WARNING.md)
 var childUtils = require('./utils/child-process');
+
+// Define our test
 var initialParams = {
   version: '0.1.0',
   message: 'Release 0.1.0',
   description: null
 };
-
-// Define our test
 describe('Setting the version', function () {
   describe('for a node module', function () {
     var fixtureDir = fixtureUtils.fixtureDir('npm');
