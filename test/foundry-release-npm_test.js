@@ -10,13 +10,18 @@ var fixtureUtils = require('./utils/fixtures');
 
 // Guarantee safeguards against exec are in place (see WARNING.md)
 var childUtils = require('./utils/child-process');
+var initialParams = {
+  version: '0.1.0',
+  message: 'Release 0.1.0',
+  description: null
+};
 
 // Define our test
 describe('Setting the version', function () {
   describe('for a node module', function () {
     var fixtureDir = fixtureUtils.fixtureDir('npm');
     before(function (done) {
-      npmRelease.setVersion('0.1.0', done);
+      npmRelease.setVersion(initialParams, done);
     });
 
     it('updates the package.json', function () {
@@ -32,7 +37,7 @@ describe('Publishing', function () {
     var fixtureDir = fixtureUtils.fixtureDir('npm');
     before(function (done) {
       this.execStub = sinon.stub(shell, 'exec');
-      npmRelease.publish('0.1.0', done);
+      npmRelease.publish(initialParams, done);
     });
     after(function () {
       this.execStub.restore();
@@ -47,7 +52,7 @@ describe('Publishing', function () {
     var fixtureDir = fixtureUtils.fixtureDir('npm-private');
     before(function (done) {
       this.execStub = sinon.stub(shell, 'exec');
-      npmRelease.publish('0.1.0', done);
+      npmRelease.publish(initialParams, done);
     });
     after(function () {
       this.execStub.restore();
