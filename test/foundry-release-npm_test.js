@@ -17,11 +17,11 @@ var initialParams = {
   message: 'Release 0.1.0',
   description: null
 };
-describe('Setting the version', function () {
+describe('Updating files', function () {
   describe('for a node module', function () {
     var fixtureDir = fixtureUtils.fixtureDir('npm');
-    before(function (done) {
-      npmRelease.setVersion(initialParams, done);
+    before(function updateFiles (done) {
+      npmRelease.updateFiles(initialParams, done);
     });
 
     it('updates the package.json', function () {
