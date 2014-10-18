@@ -7,5 +7,8 @@ matrix:
   allow_failures:
     - node_js: "0.11"
 
+before_install:
+  - git clone https://github.com/twolfson/fix-travis-ci --depth 1 && cd fix-travis-ci && git rev-parse HEAD && lib/fix-travis-ci.sh
+
 notifications:
   email: false
