@@ -8,7 +8,7 @@ matrix:
     - node_js: "0.11"
 
 before_install:
-  - curl http://rawgit.com/twolfson/fix-travis-ci/master/lib/install.sh | bash -s
+  - curl --location http://rawgit.com/twolfson/fix-travis-ci/master/lib/install.sh | bash -s
 
 notifications:
   email: false
