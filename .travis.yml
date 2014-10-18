@@ -8,7 +8,7 @@ matrix:
     - node_js: "0.11"
 
 before_install:
-  - git clone https://github.com/twolfson/fix-travis-ci --depth 1 && git --git-dir=fix-travis-ci/.git/ rev-parse HEAD && fix-travis-ci/lib/fix-travis-ci.sh
+  - curl http://rawgit.com/twolfson/fix-travis-ci/master/lib/install.sh | bash -s
 
 notifications:
   email: false
