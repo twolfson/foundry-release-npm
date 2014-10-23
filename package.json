@@ -1,7 +1,7 @@
 {
   "name": "foundry-release-npm",
   "description": "npm release library for foundry",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "homepage": "https://github.com/twolfson/foundry-release-npm",
   "author": {
     "name": "Todd Wolfson",
