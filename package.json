@@ -36,13 +36,15 @@
     "shelljs": "~0.2.6"
   },
   "devDependencies": {
-    "mocha": "~1.11.0",
+    "chai": "~1.8.1",
+    "foundry": "~4.0.2",
+    "foundry-release-git": "~2.0.0",
     "grunt": "~0.4.1",
     "grunt-contrib-jshint": "~0.6.0",
     "grunt-contrib-watch": "~0.4.0",
-    "wrench": "~1.5.4",
-    "chai": "~1.8.1",
-    "sinon": "~1.7.3"
+    "mocha": "~1.11.0",
+    "sinon": "~1.7.3",
+    "wrench": "~1.5.4"
   },
   "keywords": [
     "foundry",
@@ -50,5 +52,11 @@
     "npm",
     "publish",
     "release"
-  ]
+  ],
+  "foundry": {
+    "releaseCommands": [
+      "foundry-release-git",
+      "foundry-release-npm"
+    ]
+  }
 }
