@@ -1,4 +1,6 @@
 # foundry-release-npm changelog
+2.0.2 - Documented actions in README
+
 2.0.1 - Added `foundry-release-npm` dependency
 
 2.0.0 - Moved to CLI implementation for 2.0.0 spec
