@@ -17,6 +17,11 @@ https://github.com/twolfson/foundry-release-base
 [spec]: https://github.com/twolfson/foundry-release-spec
 [foundry-release-base]: https://github.com/twolfson/foundry-release-base
 
+### Actions
+- On `update-files`, we will update the `version` in `package.json`
+- On `publish`, we will run `npm publish`
+    - If there is a `private: true` field in the `package.json`, then this step will be skipped
+
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via [grunt](https://github.com/gruntjs/grunt) and test via `npm test`.
 
