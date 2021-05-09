@@ -1,4 +1,6 @@
 # foundry-release-npm changelog
+2.0.3 - Updated devDependencies + package.json via @striezel in #2
+
 2.0.2 - Documented actions in README
 
 2.0.1 - Added `foundry-release-npm` dependency
