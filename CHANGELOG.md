@@ -1,4 +1,6 @@
 # foundry-release-npm changelog
+2.1.1 - Added Travis CI notifications
+
 2.1.0 - Updated dependencies via @striezel in #3
 
 2.0.3 - Updated devDependencies + package.json via @striezel in #2
